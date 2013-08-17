@@ -34,7 +34,7 @@ module.exports = (grunt) ->
         tasks: ["coffee:dist"]
 
       jade:
-        files: ["<%= yeoman.app %>/{,*/}*.html"]
+        files: ["<%= yeoman.app %>/{,*/}*.jade"]
         tasks: ["jade:dist"]
 
       coffeeTest:
@@ -267,6 +267,12 @@ module.exports = (grunt) ->
           cwd: ".tmp/images"
           dest: "<%= yeoman.dist %>/images"
           src: ["generated/*"]
+        ,
+          # for app/views/*.jade
+          expand: true
+          cwd: ".tmp/views"
+          dest: "<%= yeoman.dist %>/views"
+          src: ["*.html"]
         ]
 
       # for firefoxos
@@ -302,16 +308,14 @@ module.exports = (grunt) ->
         "cson:firefoxos"
       ]
 
-      ###
-    karma:
-      unit:
-        configFile: "karma.conf.js"
-        singleRun: true
-      ###
+    #karma:
+    #  unit:
+    #    configFile: "karma.conf.js"
+    #    singleRun: true
 
-    cdnify:
-      dist:
-        html: ["<%= yeoman.dist %>/*.html"]
+    #cdnify:
+    #  dist:
+    #    html: ["<%= yeoman.dist %>/*.html"]
 
     ngmin:
       dist:
@@ -327,6 +331,8 @@ module.exports = (grunt) ->
         files:
           "<%= yeoman.dist %>/scripts/scripts.js": [
             "<%= yeoman.dist %>/scripts/scripts.js"
+            # for app/scritps/controllers/*.coffee
+            "<%= yeoman.tmp %>/scripts/**/*.js"
           ]
 
   grunt.registerTask "server", (target) ->

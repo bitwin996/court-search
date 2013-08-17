@@ -7,5 +7,6 @@ app/bower_components
 app/index.html
 app/manifest.webapp
 karma*.js
+app/**/*.html
 
 *.swp
