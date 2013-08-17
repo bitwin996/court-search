@@ -1,0 +1,29 @@
+{
+    "version": "0.1",
+    "name": "Court Search",
+    "description": "Search a available sport court near you",
+    "launch_path": "/index.html",
+    "icons": {
+        "16": "/img/icons/mortar-16.png",
+        "48": "/img/icons/mortar-48.png",
+        "128": "/img/icons/mortar-128.png"
+    },
+    "developer": {
+        "name": "Tomohiro Yamada",
+        "url": "http://github.com/bitwin996"
+    },
+    "installs_allowed_from": ["*"],
+    "locales": {
+        "ja": {
+            "description": "スポーツコートを探すアプリ",
+            "developer": {
+                "url": "http://github.com/bitwin996"
+            }
+        }
+    },
+    "default_locale": "en",
+    "type": "privileged",
+    "permissions": {
+        "systemXHR": {}
+    }
+}

@@ -221,6 +221,16 @@ module.exports = (grunt) ->
           src: ["generated/*"]
         ]
 
+      # for firefoxos
+      firefoxos:
+        files: [
+          expand: true
+          dot: true
+          cwd: "<%= yeoman.app %>"
+          dest: "<%= yeoman.dist %>"
+          src: ["manifest.webapp"]
+        ]
+
     concurrent:
       server: ["coffee:dist"]
       test: ["coffee"]
@@ -283,7 +293,8 @@ module.exports = (grunt) ->
     "useminPrepare"
     "concurrent:dist"
     "concat"
-    "copy"
+    "copy:dist"
+    "copy:firefoxos"
     "cdnify"
     "ngmin"
     "cssmin"
