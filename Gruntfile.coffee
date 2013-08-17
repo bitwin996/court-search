@@ -75,6 +75,7 @@ module.exports = (grunt) ->
     open:
       server:
         url: "http://localhost:<%= connect.options.port %>"
+        app: "firefox"
 
     clean:
       dist:
@@ -295,7 +296,7 @@ module.exports = (grunt) ->
     "concat"
     "copy:dist"
     "copy:firefoxos"
-    "cdnify"
+    #"cdnify"  # to work in local
     "ngmin"
     "cssmin"
     "uglify"
