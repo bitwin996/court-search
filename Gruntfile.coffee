@@ -302,10 +302,12 @@ module.exports = (grunt) ->
         "cson:firefoxos"
       ]
 
+      ###
     karma:
       unit:
         configFile: "karma.conf.js"
         singleRun: true
+      ###
 
     cdnify:
       dist:

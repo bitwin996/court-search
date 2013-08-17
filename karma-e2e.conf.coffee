@@ -3,14 +3,30 @@
 # Karma E2E configuration
 module.exports = (config) ->
   config.set
+    frameworks: ["ng-scenario"]
+
+    plugins: [
+      "karma-ng-scenario"
+      "karma-phantomjs-launcher"
+      "karma-coffee-preprocessor"
+    ]
+
+    #preprocessors:
+    #  "test/e2e/**/*.coffee": 'coffee'
+
+    #coffeePreprocessor:
+    #  options:
+    #    bare: true
+    #    sourceMap: false
+    #  transformPath: (path) ->
+    #    path.replace /\.coffee$/, '.js'
+
 
     # base path, that will be used to resolve files and exclude
     basePath: ""
 
     # list of files / patterns to load in the browser
     files: [
-      ANGULAR_SCENARIO
-      ANGULAR_SCENARIO_ADAPTER
       "test/e2e/**/*.coffee"
     ]
 
@@ -55,8 +71,8 @@ module.exports = (config) ->
     singleRun: false
 
     # Uncomment the following lines if you are using grunt's server to run the tests
-    # proxies: {
-    #   '/': 'http://localhost:9000/'
-    # };
+    proxies:
+      '/': 'http://localhost:9000/'
+
     # URL root prevent conflicts with the site root
-    # urlRoot: '_karma_';
+    urlRoot: '_karma_'

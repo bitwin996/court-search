@@ -3,14 +3,13 @@
 # Karma configuration
 module.exports = (config) ->
   config.set
+    frameworks: ["jasmine"]
 
     # base path, that will be used to resolve files and exclude
     basePath: ""
 
     # list of files / patterns to load in the browser
     files: [
-      JASMINE
-      JASMINE_ADAPTER
       "app/bower_components/angular/angular.js"
       "app/bower_components/angular-mocks/angular-mocks.js"
       "app/scripts/*.coffee"
