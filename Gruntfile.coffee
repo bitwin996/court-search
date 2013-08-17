@@ -144,11 +144,10 @@ module.exports = (grunt) ->
           ext: ".html"
         ]
 
-      # fail to uglify's concat
       init:
-        options: [
+        options:
           pretty: true
-        ]
+
         files: [
           expand: true
           cwd: "<%= yeoman.app %>"
@@ -157,6 +156,15 @@ module.exports = (grunt) ->
           ext: ".html"
         ]
     
+    cson:
+      firefoxos:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>"
+          src: "manifest.cson"
+          dest: "<%= yeoman.app %>"
+          ext: ".webapp"
+        ]
 
     # not used since Uglify task does concat,
     # but still available if needed
@@ -291,6 +299,7 @@ module.exports = (grunt) ->
       init: [
         "coffee:init"
         "jade:init"
+        "cson:firefoxos"
       ]
 
     karma:
@@ -341,8 +350,9 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "build", [
+    "jade:init"
+    "cson:firefoxos"
     "clean:dist"
-    #"jade:index"
     "useminPrepare"
     "concurrent:dist"
     "concat"

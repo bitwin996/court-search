@@ -5,6 +5,7 @@ dist
 app/bower_components
 
 app/index.html
+app/manifest.webapp
 karma*.js
 
 *.swp
