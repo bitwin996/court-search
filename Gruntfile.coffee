@@ -1,7 +1,10 @@
 # Generated on 2013-08-17 using generator-angular 0.3.1
 "use strict"
+
 LIVERELOAD_PORT = 35729
+
 lrSnippet = require("connect-livereload")(port: LIVERELOAD_PORT)
+
 mountFolder = (connect, dir) ->
   connect.static require("path").resolve(dir)
 
@@ -122,6 +125,15 @@ module.exports = (grunt) ->
           ext: ".js"
         ]
 
+      init:
+        files: [
+          expand: true
+          cwd: "./"
+          src: "karma*.coffee"
+          dest: "./"
+          ext: ".conf.js"
+        ]
+
     jade:
       dist:
         files: [
@@ -132,9 +144,8 @@ module.exports = (grunt) ->
           ext: ".html"
         ]
 
-        # fail to uglify's concat
-        ###
-      index:
+      # fail to uglify's concat
+      init:
         options: [
           pretty: true
         ]
@@ -145,7 +156,6 @@ module.exports = (grunt) ->
           dest: "<%= yeoman.app %>"
           ext: ".html"
         ]
-        ###
     
 
     # not used since Uglify task does concat,
@@ -267,15 +277,20 @@ module.exports = (grunt) ->
         "jade:dist"
       ]
       test: [
-        "coffee"
+        "coffee:dist"
+        "coffee:test"
         "jade:dist"
       ]
       dist: [
-        "coffee"
+        "coffee:dist"
         "jade:dist"
         "imagemin"
         "svgmin"
         "htmlmin"
+      ]
+      init: [
+        "coffee:init"
+        "jade:init"
       ]
 
     karma:
@@ -339,6 +354,10 @@ module.exports = (grunt) ->
     "uglify"
     "rev"
     "usemin"
+  ]
+
+  grunt.registerTask "init", [
+    "concurrent:init"
   ]
 
   grunt.registerTask "default", [
