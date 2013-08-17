@@ -30,6 +30,10 @@ module.exports = (grunt) ->
         files: ["<%= yeoman.app %>/scripts/{,*/}*.coffee"]
         tasks: ["coffee:dist"]
 
+      jade:
+        files: ["<%= yeoman.app %>/{,*/}*.html"]
+        tasks: ["jade:dist"]
+
       coffeeTest:
         files: ["test/spec/{,*/}*.coffee"]
         tasks: ["coffee:test"]
@@ -118,7 +122,32 @@ module.exports = (grunt) ->
           ext: ".js"
         ]
 
+    jade:
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>"
+          src: "{,*/}*.jade"
+          dest: ".tmp"
+          ext: ".html"
+        ]
+
+        # fail to uglify's concat
+        ###
+      index:
+        options: [
+          pretty: true
+        ]
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>"
+          src: "index.jade"
+          dest: "<%= yeoman.app %>"
+          ext: ".html"
+        ]
+        ###
     
+
     # not used since Uglify task does concat,
     # but still available if needed
     #concat: {
@@ -233,10 +262,17 @@ module.exports = (grunt) ->
         ]
 
     concurrent:
-      server: ["coffee:dist"]
-      test: ["coffee"]
+      server: [
+        "coffee:dist"
+        "jade:dist"
+      ]
+      test: [
+        "coffee"
+        "jade:dist"
+      ]
       dist: [
         "coffee"
+        "jade:dist"
         "imagemin"
         "svgmin"
         "htmlmin"
@@ -291,6 +327,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "build", [
     "clean:dist"
+    #"jade:index"
     "useminPrepare"
     "concurrent:dist"
     "concat"
