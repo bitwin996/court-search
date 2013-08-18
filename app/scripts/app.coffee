@@ -1,7 +1,7 @@
 'use strict'
 
-#angular.module('courtSearchApp', ['ui.bootstrap', 'ui.map'])
-angular.module('courtSearchApp', ['ui.bootstrap'])
+angular.module('courtSearchApp', ['ui.bootstrap', 'ui.map'])
+#angular.module('courtSearchApp', ['ui.bootstrap'])
   .config ($routeProvider) ->
     $routeProvider
       #.when '/',
@@ -17,6 +17,3 @@ angular.module('courtSearchApp', ['ui.bootstrap'])
   .config ($httpProvider) ->
     delete $httpProvider.defaults.headers.common["X-Requested-With"]
 
-
-#initCall = ->
-#  angular.bootstrap document.getElementById("map"), ['courtSearchApp']

@@ -10,3 +10,9 @@
         dd {{ place.address }}
         dt Phone
         dd {{ place.phone }}
+
+
+.controller(ng-controller="MapCtrl")
+  //.map-canvas(ui-map="myMap", ui-options="mapOptions")
+
+  #map-canvas.span8.map(ui-map="myMap", ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }", ui-options="mapOptions")

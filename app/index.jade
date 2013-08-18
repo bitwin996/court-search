@@ -37,19 +37,24 @@ html.ng-csp
     .container(ng-view='')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
-    script.
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src='//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+    //
+      script.
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
 
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
 
-    //
-      script(src='bower_components/angular-ui-utils/modules/event/event.js')
-      script(src='bower_components/angular-ui-map/src/map.js')
-      script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady')
+    // for Google Maps
+    script(src='bower_components/angular-ui-utils/modules/event/event.js')
+    script(src='bower_components/angular-ui-map/src/map.js')
+    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady')
+    script.
+      function onGoogleReady() {
+        angular.bootstrap(document.getElementById("map-canvas"), ['courtSearchApp']);
+      }
 
     // build:js scripts/modules.js
     script(src='bower_components/angular-resource/angular-resource.js')
@@ -61,5 +66,6 @@ html.ng-csp
     script(src='scripts/app.js')
     script(src='scripts/controllers/main.js')
     script(src='scripts/controllers/place-list.js')
+    script(src='scripts/controllers/map.js')
     // endbuild
 
