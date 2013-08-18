@@ -23,10 +23,6 @@ describe 'Controller: PlaceListCtrl', () ->
     scope = $rootScope.$new()
     PlaceListCtrl = $controller 'PlaceListCtrl', $scope: scope
 
-  #it 'should attach a list of place to the scope', () ->
-  #  expect(scope.places.length).toBe 3
-
-
   it "should create 'places' model with 2 places fetched from xhr", ->
       expect(scope.places).toBeUndefined()
       httpBackend.flush()

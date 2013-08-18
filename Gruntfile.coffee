@@ -65,6 +65,12 @@ module.exports = (grunt) ->
             lrSnippet
             mountFolder connect, ".tmp"
             mountFolder connect, yeomanConfig.app
+
+            # for CORS
+            (request, response, next) ->
+              response.setHeader 'Access-Control-Allow-Origin', '*'
+              response.setHeader 'Access-Control-Allow-Methods', '*'
+              next()
           ]
 
       test:

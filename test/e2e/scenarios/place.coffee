@@ -2,8 +2,8 @@
 
 describe 'angularjsGruntExampleApp app', ->
   beforeEach ->
-    browser().navigateTo '/#place-list'
+    browser().navigateTo '/'
 
   describe 'Place list view', ->
     it 'should display the correct route', ->
-      expect(browser().location().path()).toBe '/place-list'
+      expect(browser().location().path()).toBe '/'

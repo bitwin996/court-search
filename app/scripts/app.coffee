@@ -12,3 +12,6 @@ angular.module('courtSearchApp', ['ui.bootstrap'])
         controller: 'PlaceListCtrl'
       .otherwise
         redirectTo: '/'
+
+  .config ($httpProvider) ->
+    delete $httpProvider.defaults.headers.common["X-Requested-With"]
