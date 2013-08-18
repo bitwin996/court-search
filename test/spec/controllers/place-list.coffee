@@ -7,13 +7,27 @@ describe 'Controller: PlaceListCtrl', () ->
 
   PlaceListCtrl = {}
   scope = {}
+  httpBackend = {}
+
+  placesData = [
+    name: "Place A"
+  ,
+    name: "Place B"
+  ]
 
   # Initialize the controller and a mock scope
-  beforeEach inject ($controller, $rootScope) ->
-    scope = $rootScope.$new()
-    PlaceListCtrl = $controller 'PlaceListCtrl', {
-      $scope: scope
-    }
+  beforeEach inject (_$httpBackend_, $controller, $rootScope) ->
+    httpBackend = _$httpBackend_
+    httpBackend.expectGET('data/places.json').respond placesData
 
-  it 'should attach a list of place to the scope', () ->
-    expect(scope.places.length).toBe 3
+    scope = $rootScope.$new()
+    PlaceListCtrl = $controller 'PlaceListCtrl', $scope: scope
+
+  #it 'should attach a list of place to the scope', () ->
+  #  expect(scope.places.length).toBe 3
+
+
+  it "should create 'places' model with 2 places fetched from xhr", ->
+      expect(scope.places).toBeUndefined()
+      httpBackend.flush()
+      expect(scope.places).toEqual placesData

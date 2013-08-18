@@ -82,7 +82,7 @@ module.exports = (grunt) ->
     open:
       server:
         url: "http://localhost:<%= connect.options.port %>"
-        app: "firefox"
+        app: "chrome"
 
     clean:
       dist:
@@ -157,6 +157,14 @@ module.exports = (grunt) ->
         ]
     
     cson:
+      dev:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>/data"
+          src: "{,*/}*.cson"
+          dest: ".tmp/data"
+          ext: ".json"
+        ]
       firefoxos:
         files: [
           expand: true
@@ -337,6 +345,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "server", (target) ->
     return grunt.task.run [
+      "cson:dev"  #TODO
       "build"
       "open"
       "connect:dist:keepalive"
@@ -345,6 +354,7 @@ module.exports = (grunt) ->
     grunt.task.run [
       "clean:server"
       "concurrent:server"
+      "cson:dev"
       "connect:livereload"
       "open"
       "watch"

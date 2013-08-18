@@ -8,5 +8,6 @@ app/index.html
 app/manifest.webapp
 karma*.js
 app/**/*.html
+app/data
 
 *.swp
