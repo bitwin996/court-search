@@ -20,9 +20,9 @@ Place
 * name
 * latitude
 * longitude
-* fee per an hour
 * phone
 * address
+* fee per an hour
 * open time
 * close time
 * description

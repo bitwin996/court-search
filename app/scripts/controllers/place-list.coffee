@@ -1,8 +1,9 @@
 'use strict'
 
-endpoint = "http://localhost:9000/"
+#endpoint = "http://localhost:9000/data/places.json"
+endpoint = "http://localhost:8080/_ah/api/court-search/v1/places"
 
 angular.module('courtSearchApp')
   .controller 'PlaceListCtrl', ($scope, $http) ->
-    $http.get(endpoint + 'data/places.json').success (data) ->
-      $scope.places = data
+    $http.get(endpoint).success (data) ->
+      $scope.places = data.places

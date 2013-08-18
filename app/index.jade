@@ -43,9 +43,13 @@ html.ng-csp
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
 
-    //script(src='bower_components/jquery/jquery.js')
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
+
+    //
+      script(src='bower_components/angular-ui-utils/modules/event/event.js')
+      script(src='bower_components/angular-ui-map/src/map.js')
+      script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady')
 
     // build:js scripts/modules.js
     script(src='bower_components/angular-resource/angular-resource.js')

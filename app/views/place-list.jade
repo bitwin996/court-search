@@ -2,6 +2,10 @@
   accordion(class-others="oneAtTime")
     accordion-group(ng-repeat="place in places", heading="{{ place.name }}")
       dl
+        dt Latitude
+        dd {{ place.latitude }}
+        dt Longitude
+        dd {{ place.longitude }}
         dt Address
         dd {{ place.address }}
         dt Phone
