@@ -1,11 +1,22 @@
-html
-  body
-    .hero-unit
-      h1 'Allo, 'Allo!
-      p You now have
-      ul
-        li(ng-repeat='thing in awesomeThings') {{thing}}
-      p installed.
-      h3 Enjoy coding! - Yeoman
 
-      a(ng-href="/#place-list") Place list
+// Note: set the initial collapsed state and change it when clicking
+a.btn.btn-navbar(ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
+  span.icon-bar
+  span.icon-bar
+  span.icon-bar
+
+a.brand(href="#") Title
+  // Note: use "collapse" here. The original "data-" settings are not needed anymore.
+.nav-collapse.collapse.navbar-responsive-collapse(collapse="navCollapsed")
+  ul.nav
+    a(ng-href="/#place-list") Place list
+
+
+.hero-unit
+  h1 'Allo, 'Allo!
+  p You now have
+  ul
+    li(ng-repeat='thing in awesomeThings') {{thing}}
+  p installed.
+  h3 Enjoy coding! - Yeoman
+

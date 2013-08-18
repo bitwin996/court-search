@@ -1,3 +1,8 @@
-ul.places
-  li(ng-repeat="place in places")
-    {{ place.name }}
+.controller(ng-controller="PlaceListCtrl")
+  accordion(class-others="oneAtTime")
+    accordion-group(ng-repeat="place in places", heading="{{ place.name }}")
+      dl
+        dt Address
+        dd {{ place.address }}
+        dt Phone
+        dd {{ place.phone }}

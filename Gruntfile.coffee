@@ -384,7 +384,7 @@ module.exports = (grunt) ->
     "usemin"
   ]
 
-  grunt.registerTask "init", [
+  grunt.registerTask "setup", [
     "concurrent:init"
   ]
 
