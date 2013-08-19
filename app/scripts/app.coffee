@@ -17,3 +17,5 @@ angular.module('courtSearchApp', ['ui.bootstrap', 'ui.map'])
   .config ($httpProvider) ->
     delete $httpProvider.defaults.headers.common["X-Requested-With"]
 
+  .value 'apiEndpoint', "http://localhost:9000/data"
+  #.value 'apiEndpoint', "http://localhost:8080/_ah/api/court-search/v1"

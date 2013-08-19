@@ -16,9 +16,9 @@ describe 'Controller: PlaceListCtrl', () ->
   ]
 
   # Initialize the controller and a mock scope
-  beforeEach inject (_$httpBackend_, $controller, $rootScope) ->
+  beforeEach inject (_$httpBackend_, $controller, $rootScope, apiEndpoint) ->
     httpBackend = _$httpBackend_
-    httpBackend.expectGET('data/places.json').respond placesData
+    httpBackend.expectGET(apiEndpoint + '/places.json').respond placesData
 
     scope = $rootScope.$new()
     PlaceListCtrl = $controller 'PlaceListCtrl', $scope: scope

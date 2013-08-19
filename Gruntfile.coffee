@@ -351,7 +351,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "server", (target) ->
     return grunt.task.run [
-      "cson:dev"  #TODO
+      #"cson:dev"  #TODO
       "build"
       "open"
       "connect:dist:keepalive"
@@ -359,8 +359,8 @@ module.exports = (grunt) ->
 
     grunt.task.run [
       "clean:server"
-      "concurrent:server"
       "cson:dev"
+      "concurrent:server"
       "connect:livereload"
       "open"
       "watch"

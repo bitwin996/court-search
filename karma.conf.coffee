@@ -17,6 +17,8 @@ module.exports = (config) ->
       "app/scripts/**/*.coffee"
       "test/mock/**/*.coffee"
       "test/spec/**/*.coffee"
+      "app/bower_components/angular-ui-map/src/map.js"
+      "app/bower_components/angular-ui-utils/modules/event/event.js"
     ]
 
     # list of files to exclude
