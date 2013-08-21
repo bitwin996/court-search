@@ -88,7 +88,7 @@ module.exports = (grunt) ->
     open:
       server:
         url: "http://localhost:<%= connect.options.port %>"
-        app: "chrome"
+        app: "/usr/share/iron/iron"
 
     clean:
       dist:
