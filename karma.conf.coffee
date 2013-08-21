@@ -13,12 +13,13 @@ module.exports = (config) ->
       "app/bower_components/angular/angular.js"
       "app/bower_components/angular-mocks/angular-mocks.js"
       "app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"
+      "app/bower_components/angular-ui-map/src/map.js"
+      "app/bower_components/angular-ui-utils/modules/event/event.js"
+      "app/bower_components/angular-ui-router/release/angular-ui-router.js"
       "app/scripts/*.coffee"
       "app/scripts/**/*.coffee"
       "test/mock/**/*.coffee"
       "test/spec/**/*.coffee"
-      "app/bower_components/angular-ui-map/src/map.js"
-      "app/bower_components/angular-ui-utils/modules/event/event.js"
     ]
 
     # list of files to exclude
