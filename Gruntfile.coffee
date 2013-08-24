@@ -28,6 +28,7 @@ module.exports = (grunt) ->
     yeomanConfig.app = require("./bower.json").appPath or yeomanConfig.app
   grunt.initConfig
     yeoman: yeomanConfig
+
     watch:
       coffee:
         files: ["<%= yeoman.app %>/scripts/{,*/}*.coffee"]
@@ -43,6 +44,7 @@ module.exports = (grunt) ->
 
       livereload:
         options:
+          nospawn: true
           livereload: LIVERELOAD_PORT
 
         files: [

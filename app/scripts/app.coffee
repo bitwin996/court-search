@@ -1,6 +1,10 @@
 'use strict'
 
-angular.module('courtSearchApp', ['ui.bootstrap', 'ui.map'])
+angular.module('courtSearchApp', [
+  'courtSearchApp.services'
+  'ui.bootstrap'
+  'ui.map'
+])
   .config ($httpProvider) ->
     delete $httpProvider.defaults.headers.common["X-Requested-With"]
 
@@ -12,5 +16,5 @@ angular.module('courtSearchApp', ['ui.bootstrap', 'ui.map'])
       .otherwise
         redirectTo: '/'
 
-  .value 'apiEndpoint', "http://localhost:9000/data"
-  #.value 'apiEndpoint', "http://localhost:8080/_ah/api/court-search/v1"
+  .constant 'apiEndpoint', "http://localhost:8080/_ah/api/court-search/v1"
+  #.constant 'apiEndpoint', "http://localhost\\:9000/data"

@@ -10,14 +10,16 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
-      "app/bower_components/angular/angular.js"
+      "app/bower_components/angular/angular.min.js"
       "app/bower_components/angular-mocks/angular-mocks.js"
+      "app/bower_components/angular-resource/angular-resource.min.js"
       "app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"
       "app/bower_components/angular-ui-map/src/map.js"
       "app/bower_components/angular-ui-utils/modules/event/event.js"
       "app/bower_components/angular-ui-router/release/angular-ui-router.js"
-      "app/scripts/*.coffee"
+      #"app/scripts/*.coffee"
       "app/scripts/**/*.coffee"
+      "app/services/**/*.coffee"
       "test/mock/**/*.coffee"
       "test/spec/**/*.coffee"
     ]

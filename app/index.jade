@@ -49,18 +49,20 @@ html.ng-csp
         g.src='//www.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
 
-    script(src='bower_components/angular/angular.min.js')
-    script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
-    script(src='/bower_components/angular-ui-router/release/angular-ui-router.min.js')
+    // use min
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
+    script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
 
     // for Google Maps
     script(src='bower_components/angular-ui-utils/modules/event/event.js')
     script(src='bower_components/angular-ui-map/src/map.js')
     script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady')
-    script.
-      function onGoogleReady() {
-        angular.bootstrap(document.getElementById("map-canvas"), ['courtSearchApp']);
-      }
+    //
+      script.
+        function onGoogleReady() {
+          angular.bootstrap(document.getElementById("map-canvas"), ['courtSearchApp']);
+        }
 
     // build:js scripts/modules.js
     script(src='bower_components/angular-resource/angular-resource.js')
@@ -72,6 +74,7 @@ html.ng-csp
     script(src='scripts/app.js')
     script(src='scripts/controllers/main.js')
     script(src='scripts/controllers/place-list.js')
-    script(src='scripts/controllers/map.js')
+    //script(src='scripts/controllers/map.js')
+    script(src='scripts/services/place.js')
     // endbuild
 

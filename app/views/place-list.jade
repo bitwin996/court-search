@@ -1,7 +1,10 @@
 .controller(ng-controller="PlaceListCtrl")
+  script.
+    onGoogleReady();
+
   accordion(class-others="oneAtTime")
-    accordion-group(ng-repeat="place in places", heading="{{ place.name }}", ng-click="setCenter(place)")
-      dl
+    accordion-group(ng-repeat="place in data.places", heading="{{ place.name }}", ng-click="setCenter(place)")
+      dl(ng-click="setCenter(place)")
         dt Latitude
         dd {{ place.latitude }}
         dt Longitude
@@ -11,8 +14,5 @@
         dt Phone
         dd {{ place.phone }}
 
+  #map-canvas.span8.map(ui-map="csMap", ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(csMap.getZoom())' }", ui-options="mapOptions")
 
-.controller(ng-controller="MapCtrl")
-  //.map-canvas(ui-map="myMap", ui-options="mapOptions")
-
-  #map-canvas.span8.map(ui-map="myMap", ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }", ui-options="mapOptions")
