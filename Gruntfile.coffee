@@ -144,6 +144,9 @@ module.exports = (grunt) ->
 
     jade:
       dist:
+        options:
+          nospawn: true
+
         files: [
           expand: true
           cwd: "<%= yeoman.app %>"

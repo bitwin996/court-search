@@ -1,8 +1,8 @@
 .controller(ng-controller="PlaceListCtrl")
 
   accordion(class-others="oneAtTime")
-    accordion-group(ng-repeat="place in data.places", heading="{{ place.name }}", ng-click="setCenter(place)")
-      dl(ng-click="setCenter(place)")
+    accordion-group(ng-repeat="place in data.places", heading="{{ place.name }}")
+      dl(ng-click="selectPlace(place)")
         dt Latitude
         dd {{ place.latitude }}
         dt Longitude
