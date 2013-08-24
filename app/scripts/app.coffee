@@ -3,7 +3,7 @@
 angular.module('courtSearchApp', [
   'courtSearchApp.services'
   'ui.bootstrap'
-  'ui.map'
+  #'ui.map'
 ])
   .config ($httpProvider) ->
     delete $httpProvider.defaults.headers.common["X-Requested-With"]

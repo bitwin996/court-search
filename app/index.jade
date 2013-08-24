@@ -55,13 +55,15 @@ html.ng-csp
     script(src='/bower_components/angular-ui-router/release/angular-ui-router.js')
 
     // for Google Maps
-    script(src='bower_components/angular-ui-utils/modules/event/event.js')
-    script(src='bower_components/angular-ui-map/src/map.js')
-    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady')
-    script.
-      function onGoogleReady() {
-        angular.bootstrap(document.getElementById("map-canvas"), ['courtSearchApp']);
-      }
+    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false")
+
+    //
+      script(src='bower_components/angular-ui-utils/modules/event/event.js')
+      script(src='bower_components/angular-ui-map/src/map.js')
+      script.
+        function onGoogleReady() {
+          angular.bootstrap(document.getElementById("map-canvas"), ['courtSearchApp']);
+        }
 
     // build:js scripts/modules.js
     script(src='bower_components/angular-resource/angular-resource.js')

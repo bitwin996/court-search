@@ -44,7 +44,6 @@ module.exports = (grunt) ->
 
       livereload:
         options:
-          nospawn: true
           livereload: LIVERELOAD_PORT
 
         files: [
@@ -144,9 +143,6 @@ module.exports = (grunt) ->
 
     jade:
       dist:
-        options:
-          nospawn: true
-
         files: [
           expand: true
           cwd: "<%= yeoman.app %>"

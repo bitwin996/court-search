@@ -12,5 +12,8 @@
         dt Phone
         dd {{ place.phone }}
 
-  #map-canvas.span8.map(ui-map="csMap", ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(csMap.getZoom())' }", ui-options="mapOptions")
+  #map-canvas.span8
+
+  //
+    #map-canvas.span8.map(ui-map="csMap", ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(csMap.getZoom())' }", ui-options="mapOptions")
 
