@@ -11,10 +11,10 @@ angular.module('courtSearchApp')
           map: $scope.appMap
           position: place.latLng
           title: place.name
+          place: place
 
-        google.maps.event.addListener place.marker, 'ng-click', ->
-          console.log 'CLICK', place
-          $scope.selectPlace place
+        google.maps.event.addListener place.marker, 'click', ->
+          $scope.selectPlace @place
 
 
     $scope.appMap = new google.maps.Map document.getElementById('map-canvas'),
@@ -22,14 +22,16 @@ angular.module('courtSearchApp')
       zoom: 15
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
-    $scope.infoWindow = new google.maps.InfoWindow content: ''
+    google.maps.event.addListener $scope.appMap, 'click', ->
+      $scope.infoWindow.close()
+
+    $scope.infoWindow = new google.maps.InfoWindow()
 
     $scope.selectPlace = (place) ->
       $scope.infoWindow.close()
 
       $scope.infoWindow.setOptions
         content: place.address
-        position: place.marker.getPosition()
 
       $scope.infoWindow.open $scope.appMap, place.marker
       $scope.appMap.panTo place.latLng
