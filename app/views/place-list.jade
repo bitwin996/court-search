@@ -1,6 +1,4 @@
 .controller(ng-controller="PlaceListCtrl")
-  script.
-    onGoogleReady();
 
   accordion(class-others="oneAtTime")
     accordion-group(ng-repeat="place in data.places", heading="{{ place.name }}", ng-click="setCenter(place)")

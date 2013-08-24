@@ -3,16 +3,12 @@
 angular.module('courtSearchApp')
   .controller 'PlaceListCtrl', ($scope, $http, apiEndpoint, Place) ->
 
-    $scope.data = Place.query()
+    $scope.data = Place.query null, ->
+      $scope.setMarkers()
 
-    $scope.onGoogleReady = ->
-      angular.bootstrap angular.element("#map-canvas"), ['courtSearchApp']
-      setMarkers()
-
-    $scope.mapOptions =
-      center: new google.maps.LatLng(35.784, -78.670)
-      zoom: 15
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    #$scope.onGoogleReady = ->
+    #  angular.bootstrap angular.element("#map-canvas"), ['courtSearchApp']
+    #  setMarkers()
 
     $scope.setMarkers = ->
       for place in $scope.data.places
@@ -24,6 +20,10 @@ angular.module('courtSearchApp')
             map: $scope.csMap
             position: place.latLng
 
+    $scope.mapOptions =
+      center: new google.maps.LatLng(35.784, -78.670)
+      zoom: 15
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+
     $scope.setCenter = (place) ->
-      #$scope.setMarkers()
       $scope.csMap.setCenter place.latLng
