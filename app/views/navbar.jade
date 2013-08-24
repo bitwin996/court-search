@@ -1,5 +1,22 @@
 .navbar.navbar-fixed-top
-  .container
+  .navbar-inner
+    .container
+      ul.nav
+        li.active
+          a.brand(href="#/") Court Search
+
+        li
+          a(href="#") Search
+        li
+          a(href="#") Upload
+        li
+          a(href="#") Teammates
+
+      ul.nav.pull-right
+        li
+          a(href="#") Teammates
+
+  //
     .navbar-header
       a.navbar-brand(href='../') Bootswatch
       button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')

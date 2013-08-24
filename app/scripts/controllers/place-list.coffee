@@ -4,6 +4,8 @@ angular.module('courtSearchApp')
   .controller 'PlaceListCtrl', ($scope, $http, apiEndpoint, Place) ->
 
     $scope.data = Place.query ->
+      return unless $scope.data.places
+
       for place in $scope.data.places
         place.latLng = new google.maps.LatLng place.latitude, place.longitude
 
@@ -18,8 +20,8 @@ angular.module('courtSearchApp')
 
 
     $scope.appMap = new google.maps.Map document.getElementById('map-canvas'),
-      center: new google.maps.LatLng(35.784, -78.670)
-      zoom: 15
+      center: new google.maps.LatLng 14.6359, 121.0755
+      zoom: 12
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
     google.maps.event.addListener $scope.appMap, 'click', ->
