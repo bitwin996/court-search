@@ -1,27 +1,22 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+      //a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+      a.btn.btn-navbar(ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
         span.icon-bar
         span.icon-bar
         span.icon-bar
 
       a.brand(href="#/") Court Search
 
-      .nav-collapse
-
+      .nav-collapse.collapse.navbar-responsive-collapse(collapse="navCollapsed")
         ul.nav
           li
             a(href="#") Search
           li
             a(href="#") Upload
           li
-            a(href="#") Teammates
-
-    //
-      ul.nav.pull-right
-        li
-          a(href="#") Teammates
+            a(href="#") Mates
 
   //
     .navbar-header
