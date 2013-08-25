@@ -38,6 +38,10 @@ module.exports = (grunt) ->
         files: ["<%= yeoman.app %>/{,*/}*.jade"]
         tasks: ["jade:dist"]
 
+      stylus:
+        files: ["<%= yeoman.app %>/{,*/}*.styl"]
+        tasks: ["stylus:dist"]
+
       coffeeTest:
         files: ["test/spec/{,*/}*.coffee"]
         tasks: ["coffee:test"]
@@ -163,6 +167,16 @@ module.exports = (grunt) ->
           ext: ".html"
         ]
     
+    stylus:
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>"
+          src: "{,*/}*.styl"
+          dest: ".tmp"
+          ext: ".css"
+        ]
+
     cson:
       dev:
         files: [
@@ -304,6 +318,7 @@ module.exports = (grunt) ->
       server: [
         "coffee:dist"
         "jade:dist"
+        "stylus:dist"
       ]
       test: [
         "coffee:dist"
@@ -313,6 +328,7 @@ module.exports = (grunt) ->
       dist: [
         "coffee:dist"
         "jade:dist"
+        "stylus:dist"
         "imagemin"
         "svgmin"
         "htmlmin"
