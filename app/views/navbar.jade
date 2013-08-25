@@ -1,17 +1,24 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      ul.nav
-        li.active
-          a.brand(href="#/") Court Search
+      a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
 
-        li
-          a(href="#") Search
-        li
-          a(href="#") Upload
-        li
-          a(href="#") Teammates
+      a.brand(href="#/") Court Search
 
+      .nav-collapse
+
+        ul.nav
+          li
+            a(href="#") Search
+          li
+            a(href="#") Upload
+          li
+            a(href="#") Teammates
+
+    //
       ul.nav.pull-right
         li
           a(href="#") Teammates
