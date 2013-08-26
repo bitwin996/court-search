@@ -28,6 +28,7 @@ module.exports = (config) ->
     # list of files / patterns to load in the browser
     files: [
       "test/e2e/**/*.coffee"
+      "app/scripts/app.coffee"
     ]
 
     # list of files to exclude

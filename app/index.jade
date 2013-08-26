@@ -40,33 +40,6 @@ html.ng-csp
 
     // navbar
     .container(ng-include="'views/navbar.html'")
-    //
-      .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.brand(href='#')
-            | Court Search
-          .nav-collapse.collapse
-            ul.nav
-              .spacer
-              li
-                a(href='#/place-list')
-                  | Search
-              .spacer
-              li
-                a(href='#/place-create')
-                  | Upload
-              .spacer
-            ul.nav
-              .spacer
-              li
-                a(href='#/account')
-              .spacer
-
 
     .container(ng-view='')
 
@@ -105,6 +78,7 @@ html.ng-csp
     script(src='scripts/app.js')
     script(src='scripts/controllers/main.js')
     script(src='scripts/controllers/place-list.js')
+    script(src='scripts/controllers/place-new.js')
     //script(src='scripts/controllers/map.js')
     script(src='scripts/services/place.js')
     // endbuild

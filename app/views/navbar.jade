@@ -1,7 +1,6 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      //a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
       a.btn.btn-navbar(ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
         span.icon-bar
         span.icon-bar
@@ -12,67 +11,6 @@
       .nav-collapse.collapse.navbar-responsive-collapse(collapse="navCollapsed")
         ul.nav
           li
-            a(href="#") Search
+            a(href="#/place-list") Search
           li
-            a(href="#") Upload
-          li
-            a(href="#") Mates
-
-  //
-    .navbar-header
-      a.navbar-brand(href='../') Bootswatch
-      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-    #navbar-main.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li.dropdown
-          a#themes.dropdown-toggle(data-toggle='dropdown', href='#')
-            | Themes
-            span.caret
-          ul.dropdown-menu(aria-labelledby='themes')
-            li
-              a(tabindex='-1', href='../default/') Default
-            li.divider
-            li
-              a(tabindex='-1', href='../amelia/') Amelia
-            li
-              a(tabindex='-1', href='../cerulean/') Cerulean
-            li
-              a(tabindex='-1', href='../cosmo/') Cosmo
-            li
-              a(tabindex='-1', href='../cyborg/') Cyborg
-            li
-              a(tabindex='-1', href='../flatly/') Flatly
-            li
-              a(tabindex='-1', href='../journal/') Journal
-            li
-              a(tabindex='-1', href='../readable/') Readable
-            li
-              a(tabindex='-1', href='../simplex/') Simplex
-            li
-              a(tabindex='-1', href='../slate/') Slate
-
-            li
-              a(tabindex='-1', href='../spacelab/') Spacelab
-            li
-              a(tabindex='-1', href='../united/') United
-        li.dropdown
-          a#download.dropdown-toggle(data-toggle='dropdown', href='#')
-            | Download
-            span.caret
-          ul.dropdown-menu(aria-labelledby='download')
-            li
-              a(tabindex='-1', href='./bootstrap.min.css') bootstrap.min.css
-            li
-              a(tabindex='-1', href='./bootstrap.css') bootstrap.css
-        li
-          a(href='../help/') Help
-        li
-          a(href='http://news.bootswatch.com') Blog
-      ul.nav.navbar-nav.navbar-right
-        li
-          a(href='http://builtwithbootstrap.com/', target='_blank') Built With Bootstrap
-        li
-          a(href='https://wrapbootstrap.com/?ref=bsw', target='_blank') WrapBootstrap
+            a(href="#/place-new") Upload

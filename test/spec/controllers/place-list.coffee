@@ -1,10 +1,12 @@
 'use strict'
 
 describe 'Controller: PlaceListCtrl', () ->
+  ###
   beforeEach ->
     @addMatchers
       toEqualData: (expected) ->
         angular.equals @actual, expected
+  ###
 
   # load the controller's module
   beforeEach module 'courtSearchApp'

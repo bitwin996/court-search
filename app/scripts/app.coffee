@@ -10,11 +10,14 @@ angular.module('courtSearchApp', [
 
   .config ($routeProvider) ->
     $routeProvider
-      .when '/',
+      .when '/place-list',
         templateUrl: 'views/place-list.html'
         controller: 'PlaceListCtrl'
+      .when '/place-new',
+        templateUrl: 'views/place-new.html'
+        controller: 'PlaceNewCtrl'
       .otherwise
-        redirectTo: '/'
+        redirectTo: '/place-list'
 
   .constant 'apiEndpoint', "http://localhost:8080/_ah/api/court-search/v1"
   #.constant 'apiEndpoint', "http://localhost\\:9000/data"
