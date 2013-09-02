@@ -1,2 +1,36 @@
-.controller(ng-controller="PlaceNewCtrl")
-  p This is the place-new view&period;
+//.controller(ng-controller="PlaceNewCtrl")
+
+form.form-horizontal(ng-controller="PlaceNewCtrl", ng-submit="submit()")
+  .control-group
+    label.control-label(for="id") ID
+    span(ng-model="place.id") {{place.id}}
+
+  .control-group
+    label.control-label(for="name") Name
+    .controls
+      input(type="text", ng-model="place.name", value="{{place.name}}")
+
+  .control-group
+    .form-inline
+    label.control-label(for="latitude") Latitude
+    .controls
+      input(type="text", ng-model="place.latitude", value="{{place.latitude}}")
+
+  .control-group
+    label.control-label(for="longitude") Longitude
+    .controls
+      input(type="text", ng-model="place.longitude", value="{{place.longitude}}")
+
+  .control-group
+    label.control-label(for="address") Address
+    .controls
+      input(type="text", ng-model="place.address", value="{{place.address}}")
+
+  .control-group
+    label.control-label(for="phone") Phone Number
+    .controls
+      input(type="text", ng-model="place.phone", value="{{place.phone}}")
+
+  .control-group
+    .controls
+      input.btn-primary(type="submit", value="Upload")

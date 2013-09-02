@@ -18,8 +18,11 @@ from google.appengine.ext import endpoints
 from protorpc import remote,messages,message_types
 from google.appengine.ext import ndb
 
+from pprint import pprint
+from inspect import getmembers
+
 #from models.place import Place,GetPlaceRequest,GetPlaceResponse,PostPlaceRequest,PostPlaceResponse
-from models.place import DbPlace,Place,Places,PlaceQuery,PlaceSaved
+from models.place import PlaceStore,Place,Places,PlaceQuery
 
 
 # URL: /_ah/api/court-search/v1
@@ -28,27 +31,35 @@ class CourtSearchApi(remote.Service):
 
   # URL: /_ah/api/court-search/v1/places
   @endpoints.method(message_types.VoidMessage, Places, path='places', http_method='GET')
-  def get_account(self, request):
-    dbPlaces = DbPlace.query()
-    places = []
-    for dbPlace in dbPlaces:
-      places.append(toMessage(dbPlace))
+  def get_places(self, request):
+    stores = PlaceStore.query().fetch()
+    #pprint(getmembers(placesStore))
+    places = [store.toMessage() for store in stores]
 
-    return Places(places=places)
+    return Places(places = places)
 
   # URL: /_ah/api/court-search/v1/places
-  @endpoints.method(Place, PlaceSaved, path='places', http_method='POST')
-  def post_account(self, request):
-    dbPlace = DbPlace(
-        name = request.name,
-        location = ndb.GeoPt(request.latitude, request.longitude),
-        address = request.address,
-        phone = request.phone
-        )
-    key = dbPlace.put()
-    #print(key.toString())
+  @endpoints.method(Place, Place, path='places', http_method='POST')
+  def post_place(self, request):
+    store = PlaceStore(
+      name = request.name,
+      location = ndb.GeoPt(request.latitude, request.longitude),
+      #latitude = request.latitude,
+      #longitude = request.longitude,
+      address = request.address,
+      phone = request.phone
+      )
+    key = store.put()
 
-    return PlaceSaved(name = request.name)
+    return store.toMessage()
+
+  # URL: /_ah/api/court-search/v1/places
+  @endpoints.method(message_types.VoidMessage, message_types.VoidMessage, path='places', http_method='OPTIONS')
+  def options_places(self, request):
+    methods = ['GET', 'POST']
+    #request.response.headers.add_header('Allow', ','.join(methods))
+    return message_types.VoidMessage()
+
 
 def toMessage(dbPlace):
   msg = Place(

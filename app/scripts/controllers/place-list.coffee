@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('courtSearchApp')
-  .controller 'PlaceListCtrl', ($scope, $http, apiEndpoint, Place) ->
+  .controller 'PlaceListCtrl', ($scope, Place) ->
 
     $scope.data = Place.query ->
       return unless $scope.data.places

@@ -13,8 +13,6 @@ describe 'Controller: PlaceNewCtrl', () ->
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
-    #for k,v of @
-    #  console.log k,v
     scope = $rootScope.$new()
     PlaceNewCtrl = $controller 'PlaceNewCtrl', {
       $scope: scope
