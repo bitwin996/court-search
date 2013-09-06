@@ -4,6 +4,8 @@ angular.module('courtSearchApp')
   .controller 'PlaceListCtrl', ($scope, Place) ->
 
     $scope.data = Place.query ->
+      console.log $scope. data
+
       return unless $scope.data.places
 
       for place in $scope.data.places

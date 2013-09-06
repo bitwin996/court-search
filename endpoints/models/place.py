@@ -6,7 +6,7 @@ from google.appengine.ext.ndb import msgprop
 
 
 class Place(messages.Message):
-  key = messages.StringField(1, required=False)
+  id = messages.StringField(1, required=False)
   name = messages.StringField(2, required=True)
   latitude = messages.FloatField(3, required=True)
   longitude = messages.FloatField(4, required=True)
@@ -21,7 +21,7 @@ class PlaceStore(ndb.Model):
 
   def toMessage(self):
     msg = Place(
-        key = self.key.urlsafe(),
+        id = self.key.urlsafe(),
         name = self.name,
         latitude = self.location.lat,
         longitude = self.location.lon,
