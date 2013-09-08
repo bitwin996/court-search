@@ -16,6 +16,9 @@ angular.module('courtSearchApp', [
       .when '/place-new',
         templateUrl: 'views/place-new.html'
         controller: 'PlaceNewCtrl'
+      .when '/user-new',
+        templateUrl: 'views/user-new.html'
+        controller: 'UserNewCtrl'
       .otherwise
         redirectTo: '/place-list'
 

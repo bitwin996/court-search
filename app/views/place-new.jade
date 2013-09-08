@@ -3,7 +3,8 @@
 form.form-horizontal(ng-controller="PlaceNewCtrl", ng-submit="submit()")
   .control-group
     label.control-label(for="id") ID
-    span(ng-model="place.id") {{place.id}}
+    .controls
+      span(ng-model="place.id") {{place.id}}
 
   .control-group
     label.control-label(for="name") Name
