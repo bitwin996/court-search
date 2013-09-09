@@ -1,15 +1,11 @@
 'use strict'
 
 angular.module('courtSearchApp.services', ['ngResource'])
-  .service 'Place', ($resource, apiEndpoint) ->
+  .factory 'Place', ($resource, apiEndpoint) ->
     $resource apiEndpoint.replace(/(:\d+)/, '$1$1') + '/places/:placeId',
       placeId: '@id',
         query:
           method: 'GET'
 
-###
-        get:
-          method: 'GET'
-          params:
-            placeId: '@id'
-###
+  .factory 'Account', ($resource, apiEndpoint) ->
+    $resource apiEndpoint.replace(/(:\d+)/, '$1$1') + '/account',

@@ -76,10 +76,17 @@ html.ng-csp
 
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
-    script(src='scripts/controllers/main.js')
+
+    // controllers
+    //script(src='scripts/controllers/main.js')
+    script(src='scripts/controllers/account-create.js')
     script(src='scripts/controllers/place-list.js')
     script(src='scripts/controllers/place-new.js')
     //script(src='scripts/controllers/map.js')
-    script(src='scripts/services/place.js')
+
+    // services
+    script(src='scripts/services.js')
+    //script(src='scripts/services/place.js')
+    //script(src='scripts/services/account.js')
     // endbuild
 

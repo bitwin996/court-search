@@ -6,8 +6,8 @@ angular.module('courtSearchApp')
 
     $scope.submit = ->
       place = new Place $scope.place
-      place.$save (place) ->
-        $scope.place = place
+      place.$save (data) ->
+        $scope.place = data
 
 
 

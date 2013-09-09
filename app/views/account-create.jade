@@ -1,0 +1,19 @@
+form.form-horizontal(ng-controller="AccountCreateCtrl", ng-submit="submit()")
+  .control-group
+    label.control-label(for="id") ID
+    span(ng-model="account.id") {{account.id}}
+
+  .control-group
+    label.control-label(for="name") Name
+    .controls
+      input(type="text", ng-model="account.name", value="{{account.name}}")
+
+  .control-group
+    .form-inline
+    label.control-label(for="email") Email
+    .controls
+      input(type="email", ng-model="account.email", value="{{account.email}}")
+
+  .control-group
+    .controls
+      input.btn-primary(type="submit", value="Sign up")
