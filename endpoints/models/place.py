@@ -41,5 +41,5 @@ class PlacesStore(ndb.Model):
   places = msgprop.MessageProperty(Places,
       indexed_fields = ['places.name', 'places.latitude', 'places.longitude'])
 
-class PlaceQuery(messages.Message):
-  count = messages.IntegerField(1, required=False)
+#class PlaceQuery(messages.Message):
+#  count = messages.IntegerField(1, required=False)

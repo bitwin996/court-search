@@ -11,3 +11,4 @@ app/**/*.html
 app/data
 
 *.swp
+*.db

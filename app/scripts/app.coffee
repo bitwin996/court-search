@@ -23,4 +23,3 @@ angular.module('courtSearchApp', [
         redirectTo: '/place-list'
 
   .constant 'apiEndpoint', "http://localhost:8080/_ah/api/court-search/v1"
-  #.constant 'apiEndpoint', "http://localhost\\:9000/data"

@@ -22,12 +22,11 @@ from pprint import pprint
 from inspect import getmembers
 
 from models.place import PlaceStore,Place,Places
-from models.account import AccountStore,Account
 
 
 # URL: /_ah/api/court-search/v1
 @endpoints.api(name='court-search', version='v1', description='CourtSearch API')
-class CourtSearchApi(remote.Service):
+class PlacesApi(remote.Service):
 
   # URL: /_ah/api/court-search/v1/places
   @endpoints.method(message_types.VoidMessage, Places, path='places', http_method='GET')
@@ -56,38 +55,5 @@ class CourtSearchApi(remote.Service):
     methods = ['GET', 'POST']
     #request.response.headers.add_header('Allow', ','.join(methods))
 
-  # URL: /_ah/api/court-search/v1/account
-  @endpoints.method(Account, Account, path='account', http_method='GET')
-  def get_account(self, request):
-    key = 'aaaa'
-    account = Account(
-      id = key,
-      name = 'test user',
-      email = 'test@gmail.com'
-      )
-    return account
 
-
-  # URL: /_ah/api/court-search/v1/account
-  @endpoints.method(Account, Account, path='account', http_method='POST')
-  def post_account(self, request):
-    store = AccountStore(
-      name = request.name,
-      email = request.email
-      )
-
-    #if not mail.is_email_valid(store.email):
-    #  return 1
-
-    #msg = mail.EmailMessage()
-    #msg.sender = 'test@cs.jp'
-    #msg.to = store.email
-
-    key = store.put()
-
-    #msg.send()
-
-    return store.toMessage()
-
-
-app = endpoints.api_server([CourtSearchApi], restricted=False)
+app = endpoints.api_server([PlacesApi], restricted=False)
